@@ -1,0 +1,30 @@
+﻿@model List<MessageViewModel>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="refresh" content="10" />
+        <title></title>
+        <environment include="Development">
+        <link rel="stylesheet" href="~/css/chat.css" />
+    </environment>
+    </head>
+    <body>
+    <ol class="chat">
+    @foreach(var item in Model){
+        <li class=@item.From>
+          <div class="msg">
+            <p>@item.Content</p>
+            <time>@item.TimeStamp</time>
+          </div>
+        </li>
+    }
+    </ol>
+<div class="typezone">
+<form method="post">
+    <textarea type="text" name="content" runat="server" placeholder="Say something"></textarea>
+    <input type="submit" class="send" value=""/>
+</form>
+        </div>
+    </body>
+</html>
